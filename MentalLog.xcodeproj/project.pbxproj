@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC09742423AC398000285BEC /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742023AC398000285BEC /* Event+CoreDataClass.swift */; };
+		FC09742523AC398000285BEC /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */; };
+		FC09742623AC398000285BEC /* Strategy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742223AC398000285BEC /* Strategy+CoreDataClass.swift */; };
+		FC09742723AC398000285BEC /* Strategy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742323AC398000285BEC /* Strategy+CoreDataProperties.swift */; };
+		FC09742923AC3ADF00285BEC /* StrategyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742823AC3ADF00285BEC /* StrategyView.swift */; };
+		FC09742B23AC3AF800285BEC /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742A23AC3AF800285BEC /* LogView.swift */; };
 		FCE3573623AB4844008C5989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573523AB4844008C5989 /* AppDelegate.swift */; };
 		FCE3573823AB4844008C5989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573723AB4844008C5989 /* SceneDelegate.swift */; };
 		FCE3573B23AB4844008C5989 /* MentalLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573923AB4844008C5989 /* MentalLog.xcdatamodeld */; };
@@ -14,9 +20,16 @@
 		FCE3573F23AB4846008C5989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE3573E23AB4846008C5989 /* Assets.xcassets */; };
 		FCE3574223AB4846008C5989 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE3574123AB4846008C5989 /* Preview Assets.xcassets */; };
 		FCE3574523AB4846008C5989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE3574323AB4846008C5989 /* LaunchScreen.storyboard */; };
+		FCE3574D23AB4B13008C5989 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3574C23AB4B13008C5989 /* EventView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC09742023AC398000285BEC /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC09742223AC398000285BEC /* Strategy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strategy+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC09742323AC398000285BEC /* Strategy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strategy+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC09742823AC3ADF00285BEC /* StrategyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyView.swift; sourceTree = "<group>"; };
+		FC09742A23AC3AF800285BEC /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		FCE3573223AB4844008C5989 /* MentalLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE3573523AB4844008C5989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE3573723AB4844008C5989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +39,7 @@
 		FCE3574123AB4846008C5989 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FCE3574423AB4846008C5989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCE3574623AB4846008C5989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCE3574C23AB4B13008C5989 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +72,16 @@
 		FCE3573423AB4844008C5989 /* MentalLog */ = {
 			isa = PBXGroup;
 			children = (
+				FC09742023AC398000285BEC /* Event+CoreDataClass.swift */,
+				FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */,
+				FC09742223AC398000285BEC /* Strategy+CoreDataClass.swift */,
+				FC09742323AC398000285BEC /* Strategy+CoreDataProperties.swift */,
+				FCE3574C23AB4B13008C5989 /* EventView.swift */,
 				FCE3573523AB4844008C5989 /* AppDelegate.swift */,
 				FCE3573723AB4844008C5989 /* SceneDelegate.swift */,
 				FCE3573C23AB4844008C5989 /* ContentView.swift */,
+				FC09742A23AC3AF800285BEC /* LogView.swift */,
+				FC09742823AC3ADF00285BEC /* StrategyView.swift */,
 				FCE3573E23AB4846008C5989 /* Assets.xcassets */,
 				FCE3574323AB4846008C5989 /* LaunchScreen.storyboard */,
 				FCE3574623AB4846008C5989 /* Info.plist */,
@@ -152,7 +173,14 @@
 				FCE3573623AB4844008C5989 /* AppDelegate.swift in Sources */,
 				FCE3573823AB4844008C5989 /* SceneDelegate.swift in Sources */,
 				FCE3573D23AB4844008C5989 /* ContentView.swift in Sources */,
+				FC09742923AC3ADF00285BEC /* StrategyView.swift in Sources */,
+				FC09742523AC398000285BEC /* Event+CoreDataProperties.swift in Sources */,
 				FCE3573B23AB4844008C5989 /* MentalLog.xcdatamodeld in Sources */,
+				FC09742423AC398000285BEC /* Event+CoreDataClass.swift in Sources */,
+				FC09742723AC398000285BEC /* Strategy+CoreDataProperties.swift in Sources */,
+				FC09742623AC398000285BEC /* Strategy+CoreDataClass.swift in Sources */,
+				FC09742B23AC3AF800285BEC /* LogView.swift in Sources */,
+				FCE3574D23AB4B13008C5989 /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
