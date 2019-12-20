@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19C46a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="stratUsed" attributeType="String"/>
+        <attribute name="stratWorked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Strategy" representedClassName="Strategy" syncable="YES">
@@ -10,7 +11,7 @@
         <attribute name="worked" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Strategy" positionX="-54" positionY="-9" width="128" height="88"/>
     </elements>
 </model>

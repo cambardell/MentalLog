@@ -70,6 +70,7 @@ struct EventView: View {
         let event = Event(context: self.managedObjectContext)
         event.text = self.whatHappened
         event.stratUsed = self.strategies[selectedStrat].text
+        event.stratWorked = stratWorked
         if stratWorked {
             strategies[selectedStrat].worked += 1
         } else {

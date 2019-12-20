@@ -42,8 +42,8 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: EventView().environment(\.managedObjectContext, self.managedObjectContext)) {
-                        Text("Get a strategy")
+                    NavigationLink(destination: StrategyView().environment(\.managedObjectContext, self.managedObjectContext)) {
+                        Text("View and create strategies")
                             .foregroundColor(Color.black)
                             .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
                             .background(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
@@ -58,7 +58,7 @@ struct ContentView: View {
                             .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
                             .background(LinearGradient(gradient: Gradient(colors: [.purple, .white]), startPoint: .top, endPoint: .bottom))
                             .cornerRadius(10)
-                    }
+                    }.onAppear(perform: self.addFirstStrat)
                     
                     Spacer()
                     
@@ -67,19 +67,21 @@ struct ContentView: View {
         }
         
     }
-    func addStrat() {
-        let strat = Strategy(context: self.managedObjectContext)
-        strat.text = "test strat"
-        strat.notWorked = 0
-        strat.worked = 0
-       
-        do {
-            try self.managedObjectContext.save()
-        } catch {
-            // handle the Core Data error
+    func addFirstStrat() {
+        if strategies.isEmpty {
+            let strat = Strategy(context: self.managedObjectContext)
+             strat.text = "Example strategy"
+             strat.notWorked = 0
+             strat.worked = 0
+            
+             do {
+                 try self.managedObjectContext.save()
+             } catch {
+                 // handle the Core Data error
+             }
         }
-      
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

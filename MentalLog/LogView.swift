@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct LogView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @FetchRequest(
         entity: Event.entity(),
         sortDescriptors: [
@@ -18,8 +20,24 @@ struct LogView: View {
     var body: some View {
         List {
             ForEach(self.events, id: \.self) { event in
-                Text(event.text)
-            }
+                VStack {
+                    Text("What happend: \(event.text)")
+                    Text("Strategy used: \(event.stratUsed)")
+                    Text("Strategy worked: \(event.stratWorked ? "yes" : "no")")
+                }
+            }.onDelete(perform: self.removeLog)
+        }
+    }
+    
+    func removeLog(at offsets: IndexSet) {
+        for index in offsets {
+            let event = events[index]
+            managedObjectContext.delete(event)
+        }
+        do {
+            try managedObjectContext.save()
+        } catch {
+            // handle the Core Data error
         }
     }
 }
