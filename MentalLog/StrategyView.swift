@@ -31,23 +31,26 @@ struct StrategyView: View {
     var body: some View {
         GeometryReader { geometry in 
             VStack {
-                TextField("Enter a new strategy", text: self.$stratText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button(action: {
-                    self.addStrat()
-                }) {
-                    Text("Create Strat")
-                        .foregroundColor(Color.black)
-                        .frame(width: 100, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
-                        .cornerRadius(10)
+                HStack {
+                    TextField("Enter a new strategy", text: self.$stratText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button(action: {
+                        self.addStrat()
+                    }) {
+                        Text("Save")
+                            .foregroundColor(Color.black)
+                            .frame(width: 100, height: 35)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
                 }
+                
                 List {
                     ForEach(self.strategies, id: \.self) { strategy in
                         HStack {
                             Text(strategy.text)
                             Spacer()
-                            VStack {
+                            VStack(alignment: .trailing) {
                                 Text("Successful uses: \(strategy.worked)")
                                 Text("Total uses: \(strategy.worked + strategy.notWorked)")
                             }
@@ -86,8 +89,12 @@ struct StrategyView: View {
     }
 }
 
+// To preview with CoreData
+#if DEBUG
 struct StrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        StrategyView()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return StrategyView().environment(\.managedObjectContext, context)
     }
 }
+#endif

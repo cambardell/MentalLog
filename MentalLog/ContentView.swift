@@ -67,10 +67,11 @@ struct ContentView: View {
         }
         
     }
+    
     func addFirstStrat() {
         if strategies.isEmpty {
             let strat = Strategy(context: self.managedObjectContext)
-             strat.text = "Example strategy"
+             strat.text = "No strategy tried"
              strat.notWorked = 0
              strat.worked = 0
             
@@ -84,8 +85,12 @@ struct ContentView: View {
     
 }
 
+// To preview with CoreData
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return ContentView().environment(\.managedObjectContext, context)
     }
 }
+#endif

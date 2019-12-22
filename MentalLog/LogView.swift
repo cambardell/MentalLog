@@ -42,8 +42,12 @@ struct LogView: View {
     }
 }
 
+// To preview with CoreData
+#if DEBUG
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {
-        LogView()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return LogView().environment(\.managedObjectContext, context)
     }
 }
+#endif

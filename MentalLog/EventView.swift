@@ -33,37 +33,54 @@ struct EventView: View {
     
     
     var body: some View {
-        VStack {
-            Text("What happened?")
-            TextView(text: $whatHappened)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            Text("What strategy did you use?")
-            
-            Picker(selection: $selectedStrat, label: Text("Picker")) {
-                ForEach(0 ..< strategies.count) {
-                    Text(self.strategies[$0].text)
+        GeometryReader { geometry in
+            VStack {
+                Text("What happened?")
+                TextView(text: self.$whatHappened)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                Text("What strategy did you use?")
+                
+                Picker(selection: self.$selectedStrat, label: Text("")) {
+                    ForEach(0 ..< self.strategies.count) {
+                        Text(self.strategies[$0].text)
+                    }
+                }.border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                
+                Text("Did it work?").padding(.bottom)
+                
+                HStack {
+                    Text("Yes")
+                        .frame(width: geometry.size.width/2 - 20, height: 50)
+                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.blue, .purple] : [.white, .white]), startPoint: .top, endPoint: .bottom))
+                        .border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                        .onTapGesture {
+                            self.stratWorked = true
+                    }
+                    Text("No")
+                        .frame(width: geometry.size.width/2 - 20, height: 50)
+                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.white, .white] : [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                        .border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                        .onTapGesture {
+                            self.stratWorked = false
+                    }
+                }.padding(.bottom)
+                
+                
+                Spacer()
+                Button(action: {
+                    self.addEvent()
+                }) {
+                    Text("Log it")
+                        .foregroundColor(Color.black)
+                        .frame(width: 100, height: 50)
+                        .background(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                        .cornerRadius(10)
                 }
-            }
-            
-            Text("Did it work?")
-            GeometryReader { geometry in
-                Text(self.stratWorked ? "Yes" : "No")
-                    .frame(width: geometry.size.width - 20, height: 50)
-                    .background(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        self.stratWorked = !self.stratWorked
-                }
-            }
-            Spacer()
-            Button(action: {
-                self.addEvent()
-            }) {
-                Text("Log it")
-            }
-            
-            Spacer()
-        }.padding()
+                
+                Spacer()
+            }.padding()
+        }
     }
     
     func addEvent() {
@@ -132,8 +149,12 @@ struct TextView: UIViewRepresentable {
     }
 }
 
+// To preview with CoreData
+#if DEBUG
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        EventView()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return EventView().environment(\.managedObjectContext, context)
     }
 }
+#endif
