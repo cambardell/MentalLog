@@ -36,7 +36,7 @@ struct ContentView: View {
                         Text("Log an event")
                             .foregroundColor(Color.black)
                             .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
-                            .background(LinearGradient(gradient: Gradient(colors: [.white, .blue]), startPoint: .top, endPoint: .bottom))
+                            .background(LinearGradient(gradient: Gradient(colors: [.white, .primaryColor]), startPoint: .top, endPoint: .bottom))
                             .cornerRadius(10)
                     }
                     
@@ -46,7 +46,7 @@ struct ContentView: View {
                         Text("View and create strategies")
                             .foregroundColor(Color.black)
                             .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
-                            .background(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                            .background(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
                             .cornerRadius(10)
                     }
                     
@@ -56,7 +56,7 @@ struct ContentView: View {
                         Text("View my log")
                             .foregroundColor(Color.black)
                             .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
-                            .background(LinearGradient(gradient: Gradient(colors: [.purple, .white]), startPoint: .top, endPoint: .bottom))
+                            .background(LinearGradient(gradient: Gradient(colors: [.secondaryColor, .white]), startPoint: .top, endPoint: .bottom))
                             .cornerRadius(10)
                     }.onAppear(perform: self.addFirstStrat)
                     
