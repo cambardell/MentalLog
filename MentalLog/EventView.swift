@@ -35,32 +35,40 @@ struct EventView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("What happened?")
+                HStack {
+                    Text("What happened?")
+                    Button(action: {
+                        UIApplication.shared.endEditing()
+                    }) {
+                        Image(systemName: "keyboard.chevron.compact.down")
+                    }
+                   
+                }
                 TextView(text: self.$whatHappened)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                    .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
                 Text("What strategy did you use?")
                 
                 Picker(selection: self.$selectedStrat, label: Text("")) {
                     ForEach(0 ..< self.strategies.count) {
                         Text(self.strategies[$0].text)
                     }
-                }.border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                }.border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
                 
                 Text("Did it work?").padding(.bottom)
                 
                 HStack {
                     Text("Yes")
                         .frame(width: geometry.size.width/2 - 20, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.blue, .purple] : [.white, .white]), startPoint: .top, endPoint: .bottom))
-                        .border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.primaryColor, .secondaryColor] : [.white, .white]), startPoint: .top, endPoint: .bottom))
+                        .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
                         .onTapGesture {
                             self.stratWorked = true
                     }
                     Text("No")
                         .frame(width: geometry.size.width/2 - 20, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.white, .white] : [.blue, .purple]), startPoint: .top, endPoint: .bottom))
-                        .border(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.white, .white] : [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
+                        .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
                         .onTapGesture {
                             self.stratWorked = false
                     }
@@ -74,7 +82,7 @@ struct EventView: View {
                     Text("Log it")
                         .foregroundColor(Color.black)
                         .frame(width: 100, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom))
+                        .background(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
                         .cornerRadius(10)
                 }
                 
@@ -88,6 +96,7 @@ struct EventView: View {
         event.text = self.whatHappened
         event.stratUsed = self.strategies[selectedStrat].text
         event.stratWorked = stratWorked
+        event.dateHappened = Date()
         if stratWorked {
             strategies[selectedStrat].worked += 1
         } else {

@@ -17,9 +17,9 @@ extension Event {
         return NSFetchRequest<Event>(entityName: "Event")
     }
 
-    @NSManaged public var stratUsed: String?
+    @NSManaged public var stratUsed: String
     @NSManaged public var stratWorked: Bool
-    @NSManaged public var text: String?
-    @NSManaged public var dateHappened: Date?
+    @NSManaged public var text: String
+    @NSManaged public var dateHappened: Date
 
 }

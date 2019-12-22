@@ -40,21 +40,14 @@ struct StrategyView: View {
                         Text("Save")
                             .foregroundColor(Color.black)
                             .frame(width: 100, height: 35)
-                            .background(Color.blue)
+                            .background(Color.primaryColor)
                             .cornerRadius(10)
                     }
                 }
                 
                 List {
                     ForEach(self.strategies, id: \.self) { strategy in
-                        HStack {
-                            Text(strategy.text)
-                            Spacer()
-                            VStack(alignment: .trailing) {
-                                Text("Successful uses: \(strategy.worked)")
-                                Text("Total uses: \(strategy.worked + strategy.notWorked)")
-                            }
-                        }.padding()
+                        StrategyItem(strategy: strategy)
                     }.onDelete(perform: self.removeStrat)
                 }
                 
@@ -66,14 +59,14 @@ struct StrategyView: View {
         strat.text = self.stratText
         strat.notWorked = 0
         strat.worked = 0
-       
+        
         do {
             try self.managedObjectContext.save()
         } catch {
             // handle the Core Data error
         }
         self.stratText = ""
-      
+        
     }
     
     func removeStrat(at offsets: IndexSet) {
@@ -89,6 +82,26 @@ struct StrategyView: View {
     }
 }
 
+struct StrategyItem: View {
+    var strategy: Strategy
+    var body: some View {
+        
+        
+        VStack(alignment: .leading) {
+            Text(strategy.text).font(.title)
+            Text("You have used this strategy \(strategy.notWorked + strategy.worked) times, and it has worked \(strategy.worked) times, for a success rate of \(calculateSucces(strategy: strategy))%")
+        }
+        
+    }
+}
+
+func calculateSucces(strategy: Strategy) -> Float {
+    if strategy.notWorked + strategy.worked > 0 {
+        return Float(strategy.worked / (strategy.notWorked + strategy.worked))
+    } else {
+        return 0
+    }
+}
 // To preview with CoreData
 #if DEBUG
 struct StrategyView_Previews: PreviewProvider {
@@ -98,3 +111,5 @@ struct StrategyView_Previews: PreviewProvider {
     }
 }
 #endif
+
+

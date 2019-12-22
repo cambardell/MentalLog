@@ -27,8 +27,8 @@ extension Color {
     }
     
     // Palette 1
-    static let primaryColor = Color(UIColor(red: 0.10, green: 0.84, blue: 0.83, alpha: 1.00))
-    static let secondaryColor = Color(UIColor(red: 0.53, green: 0.13, blue: 1.00, alpha: 1.00))
+    static let primaryColor = Color(UIColor(red: 0.49, green: 0.51, blue: 0.72, alpha: 1.00))
+    static let secondaryColor = Color(UIColor(red: 0.90, green: 0.76, blue: 0.82, alpha: 1.00))
     
 }
 
