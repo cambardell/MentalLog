@@ -35,18 +35,19 @@ struct EventView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HStack {
-                    Text("What happened?")
-                    Button(action: {
-                        UIApplication.shared.endEditing()
-                    }) {
-                        Image(systemName: "keyboard.chevron.compact.down")
-                    }
-                   
-                }
+        
+                Text("What happened?")
+                
                 TextView(text: self.$whatHappened)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
+                    .padding(.bottom)
+                Button(action: {
+                    UIApplication.shared.endEditing()
+                }) {
+                    Image(systemName: "keyboard.chevron.compact.down")
+                        .foregroundColor(Color.primaryColor)
+                }
                 Text("What strategy did you use?")
                 
                 Picker(selection: self.$selectedStrat, label: Text("")) {
@@ -99,8 +100,9 @@ struct EventView: View {
         event.dateHappened = Date()
         if stratWorked {
             strategies[selectedStrat].worked += 1
+            strategies[selectedStrat].totalUsed += 1
         } else {
-            strategies[selectedStrat].notWorked += 1
+            strategies[selectedStrat].totalUsed += 1
         }
         
         do {

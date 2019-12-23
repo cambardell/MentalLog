@@ -54,10 +54,11 @@ struct StrategyView: View {
             }.padding()
         }
     }
+    
     func addStrat() {
         let strat = Strategy(context: self.managedObjectContext)
         strat.text = self.stratText
-        strat.notWorked = 0
+        strat.totalUsed = 0
         strat.worked = 0
         
         do {
@@ -89,15 +90,15 @@ struct StrategyItem: View {
         
         VStack(alignment: .leading) {
             Text(strategy.text).font(.title)
-            Text("You have used this strategy \(strategy.notWorked + strategy.worked) times, and it has worked \(strategy.worked) times, for a success rate of \(calculateSucces(strategy: strategy))%")
+            Text("You have used this strategy \(strategy.totalUsed) times, and it has worked \(strategy.worked) times, for a success rate of \(calculateSucces(strategy: strategy))%")
         }
         
     }
 }
 
-func calculateSucces(strategy: Strategy) -> Float {
-    if strategy.notWorked + strategy.worked > 0 {
-        return Float(strategy.worked / (strategy.notWorked + strategy.worked))
+func calculateSucces(strategy: Strategy) -> Int {
+    if strategy.totalUsed > 0 {
+        return Int(strategy.worked / strategy.totalUsed) * 100
     } else {
         return 0
     }

@@ -21,7 +21,7 @@ struct ContentView: View {
     @FetchRequest(
         entity: Strategy.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Strategy.worked, ascending: false)
+            NSSortDescriptor(keyPath: \Strategy.totalUsed, ascending: false)
         ]
     ) var strategies: FetchedResults<Strategy>
     
@@ -30,46 +30,49 @@ struct ContentView: View {
             GeometryReader { geometry in
                 VStack {
                     
-                    Spacer()
-                    
                     NavigationLink(destination: EventView().environment(\.managedObjectContext, self.managedObjectContext)) {
                         Text("Log an event")
                             .foregroundColor(Color.black)
-                            .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
-                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
-                    }
-                    
-                    Spacer()
+                            .frame(width: geometry.size.width - 100, height: geometry.size.height / 6)
+                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom), width: 6)
+                    }.padding()
                     
                     NavigationLink(destination: StrategyView().environment(\.managedObjectContext, self.managedObjectContext)) {
                         Text("View and create strategies")
                             .foregroundColor(Color.black)
-                            .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
-                            .border(LinearGradient(gradient: Gradient(colors: [.secondaryColor, .primaryColor]), startPoint: .top, endPoint: .bottom))
-                    }
+                            .frame(width: geometry.size.width - 100, height: geometry.size.height / 6)
+                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom), width: 6)
+                    }.padding()
                     
-                    Spacer()
+                
                     
                     NavigationLink(destination: LogView().environment(\.managedObjectContext, self.managedObjectContext)) {
                         Text("View my log")
                             .foregroundColor(Color.black)
-                            .frame(width: geometry.size.width - 20, height: geometry.size.height / 3.5)
+                            .frame(width: geometry.size.width - 100, height: geometry.size.height / 6)
                             .cornerRadius(10)
-                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
-                    }.onAppear(perform: self.addFirstStrat)
+                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom), width: 6)
+                    }.padding()
+                    .onAppear(perform: self.addFirstStrat)
                     
                     Spacer()
+                    VStack {
+                        Text("The strategy you have used most is \"\(self.strategies[0].text)\". You've used it \(self.strategies[0].totalUsed) times.").padding()
+                        Text("You don't use \"\(self.strategies.last!.text)\" much. Maybe try it next time.").padding()
+                    }.padding(.bottom)
+              
                     
                 }
             }.navigationBarTitle("What's going on?")
+            
         }
     }
     
     func addFirstStrat() {
         if strategies.isEmpty {
             let strat = Strategy(context: self.managedObjectContext)
-             strat.text = "No strategy tried"
-             strat.notWorked = 0
+             strat.text = "Other"
+             strat.totalUsed = 0
              strat.worked = 0
             
              do {

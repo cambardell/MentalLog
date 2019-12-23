@@ -20,11 +20,7 @@ struct LogView: View {
     var body: some View {
         List {
             ForEach(self.events, id: \.self) { event in
-                VStack {
-                    Text("What happend: \(event.text)")
-                    Text("Strategy used: \(event.stratUsed)")
-                    Text("Strategy worked: \(event.stratWorked ? "yes" : "no")")
-                }
+                LogItem(event: event)
             }.onDelete(perform: self.removeLog)
         }
     }
@@ -42,6 +38,25 @@ struct LogView: View {
     }
 }
 
+struct LogItem: View {
+    var event: Event
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("What happened: \(event.text)")
+            Text("The strategy you used was \"\(event.stratUsed)\". You said it \(event.stratWorked ? "worked" : "didn't work").")
+            Text("Date of event: \(formatDate(date: event.dateHappened))")
+            
+            
+        }
+    }
+    
+    func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter.string(from: date)
+    }
+}
+
 // To preview with CoreData
 #if DEBUG
 struct LogView_Previews: PreviewProvider {
@@ -51,3 +66,5 @@ struct LogView_Previews: PreviewProvider {
     }
 }
 #endif
+
+

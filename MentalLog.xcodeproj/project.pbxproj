@@ -10,10 +10,10 @@
 		FC0908AE23AF1FF2009E9375 /* Cosmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0908AD23AF1FF2009E9375 /* Cosmetics.swift */; };
 		FC09742423AC398000285BEC /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742023AC398000285BEC /* Event+CoreDataClass.swift */; };
 		FC09742523AC398000285BEC /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */; };
-		FC09742623AC398000285BEC /* Strategy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742223AC398000285BEC /* Strategy+CoreDataClass.swift */; };
-		FC09742723AC398000285BEC /* Strategy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742323AC398000285BEC /* Strategy+CoreDataProperties.swift */; };
 		FC09742923AC3ADF00285BEC /* StrategyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742823AC3ADF00285BEC /* StrategyView.swift */; };
 		FC09742B23AC3AF800285BEC /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742A23AC3AF800285BEC /* LogView.swift */; };
+		FC95DE6423B025D100534932 /* Strategy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC95DE6223B025D100534932 /* Strategy+CoreDataClass.swift */; };
+		FC95DE6523B025D100534932 /* Strategy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC95DE6323B025D100534932 /* Strategy+CoreDataProperties.swift */; };
 		FCE3573623AB4844008C5989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573523AB4844008C5989 /* AppDelegate.swift */; };
 		FCE3573823AB4844008C5989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573723AB4844008C5989 /* SceneDelegate.swift */; };
 		FCE3573B23AB4844008C5989 /* MentalLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573923AB4844008C5989 /* MentalLog.xcdatamodeld */; };
@@ -28,11 +28,11 @@
 		FC0908AD23AF1FF2009E9375 /* Cosmetics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cosmetics.swift; sourceTree = "<group>"; };
 		FC09742023AC398000285BEC /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FC09742223AC398000285BEC /* Strategy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strategy+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FC09742323AC398000285BEC /* Strategy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strategy+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FC09742823AC3ADF00285BEC /* StrategyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyView.swift; sourceTree = "<group>"; };
 		FC09742A23AC3AF800285BEC /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
-		FCE3573223AB4844008C5989 /* MentalLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC95DE6223B025D100534932 /* Strategy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataClass.swift"; path = "../Strategy+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC95DE6323B025D100534932 /* Strategy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataProperties.swift"; path = "../Strategy+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FCE3573223AB4844008C5989 /* Coping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE3573523AB4844008C5989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE3573723AB4844008C5989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FCE3573A23AB4844008C5989 /* MentalLog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MentalLog.xcdatamodel; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		FCE3573323AB4844008C5989 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCE3573223AB4844008C5989 /* MentalLog.app */,
+				FCE3573223AB4844008C5989 /* Coping.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,8 +76,8 @@
 			children = (
 				FC09742023AC398000285BEC /* Event+CoreDataClass.swift */,
 				FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */,
-				FC09742223AC398000285BEC /* Strategy+CoreDataClass.swift */,
-				FC09742323AC398000285BEC /* Strategy+CoreDataProperties.swift */,
+				FC95DE6223B025D100534932 /* Strategy+CoreDataClass.swift */,
+				FC95DE6323B025D100534932 /* Strategy+CoreDataProperties.swift */,
 				FCE3573523AB4844008C5989 /* AppDelegate.swift */,
 				FCE3573723AB4844008C5989 /* SceneDelegate.swift */,
 				FCE3573C23AB4844008C5989 /* ContentView.swift */,
@@ -119,7 +119,7 @@
 			);
 			name = MentalLog;
 			productName = MentalLog;
-			productReference = FCE3573223AB4844008C5989 /* MentalLog.app */;
+			productReference = FCE3573223AB4844008C5989 /* Coping.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,12 +177,12 @@
 				FCE3573623AB4844008C5989 /* AppDelegate.swift in Sources */,
 				FCE3573823AB4844008C5989 /* SceneDelegate.swift in Sources */,
 				FCE3573D23AB4844008C5989 /* ContentView.swift in Sources */,
+				FC95DE6523B025D100534932 /* Strategy+CoreDataProperties.swift in Sources */,
 				FC09742923AC3ADF00285BEC /* StrategyView.swift in Sources */,
+				FC95DE6423B025D100534932 /* Strategy+CoreDataClass.swift in Sources */,
 				FC09742523AC398000285BEC /* Event+CoreDataProperties.swift in Sources */,
 				FCE3573B23AB4844008C5989 /* MentalLog.xcdatamodeld in Sources */,
 				FC09742423AC398000285BEC /* Event+CoreDataClass.swift in Sources */,
-				FC09742723AC398000285BEC /* Strategy+CoreDataProperties.swift in Sources */,
-				FC09742623AC398000285BEC /* Strategy+CoreDataClass.swift in Sources */,
 				FC09742B23AC3AF800285BEC /* LogView.swift in Sources */,
 				FCE3574D23AB4B13008C5989 /* EventView.swift in Sources */,
 			);
@@ -330,7 +330,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bardell.MentalLog;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Coping;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -350,7 +350,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bardell.MentalLog;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Coping;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
