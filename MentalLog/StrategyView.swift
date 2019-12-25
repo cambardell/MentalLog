@@ -40,7 +40,7 @@ struct StrategyView: View {
                         Text("Save")
                             .foregroundColor(Color.black)
                             .frame(width: 100, height: 35)
-                            .background(Color.primaryColor)
+                            .background(Color.tertiaryColor)
                             .cornerRadius(10)
                     }
                 }
@@ -89,8 +89,8 @@ struct StrategyItem: View {
         
         
         VStack(alignment: .leading) {
-            Text(strategy.text).font(.title)
-            Text("You have used this strategy \(strategy.totalUsed) times, and it has worked \(strategy.worked) times, for a success rate of \(calculateSucces(strategy: strategy))%")
+            Text("Title: \(strategy.text)").font(.title)
+            Text("You have used this strategy \(strategy.totalUsed) times, and it has worked \(strategy.worked) times, for a success rate of \(calculateSucces(strategy: strategy))%.")
         }
         
     }

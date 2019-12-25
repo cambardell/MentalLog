@@ -39,8 +39,8 @@ struct EventView: View {
                 Text("What happened?")
                 
                 TextView(text: self.$whatHappened)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
+                    .frame(width: geometry.size.width - 20, height: geometry.size.height / 4)
+                    .border(Color.primaryColor)
                     .padding(.bottom)
                 Button(action: {
                     UIApplication.shared.endEditing()
@@ -54,22 +54,23 @@ struct EventView: View {
                     ForEach(0 ..< self.strategies.count) {
                         Text(self.strategies[$0].text)
                     }
-                }.border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
+                }.frame(width: geometry.size.width - 20, height: geometry.size.height / 4)
+                    .border(Color.primaryColor)
                 
                 Text("Did it work?").padding(.bottom)
                 
                 HStack {
                     Text("Yes")
                         .frame(width: geometry.size.width/2 - 20, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.primaryColor, .secondaryColor] : [.white, .white]), startPoint: .top, endPoint: .bottom))
-                        .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
+                        .background(self.stratWorked ? Color.primaryColor : Color.white)
+                        .border(Color.primaryColor, width: 2)
                         .onTapGesture {
                             self.stratWorked = true
                     }
                     Text("No")
                         .frame(width: geometry.size.width/2 - 20, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: self.stratWorked ? [.white, .white] : [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
-                        .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
+                        .background(self.stratWorked ? Color.white : Color.primaryColor)
+                        .border(Color.primaryColor)
                         .onTapGesture {
                             self.stratWorked = false
                     }
@@ -83,7 +84,7 @@ struct EventView: View {
                     Text("Log it")
                         .foregroundColor(Color.black)
                         .frame(width: 100, height: 50)
-                        .background(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom))
+                        .background(Color.primaryColor)
                         .cornerRadius(10)
                 }
                 

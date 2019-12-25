@@ -34,33 +34,35 @@ struct ContentView: View {
                         Text("Log an event")
                             .foregroundColor(Color.black)
                             .frame(width: geometry.size.width - 100, height: geometry.size.height / 6)
-                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom), width: 6)
+                            .background(Color.primaryColor)
+                            .cornerRadius(10)
                     }.padding()
                     
                     NavigationLink(destination: StrategyView().environment(\.managedObjectContext, self.managedObjectContext)) {
                         Text("View and create strategies")
                             .foregroundColor(Color.black)
                             .frame(width: geometry.size.width - 100, height: geometry.size.height / 6)
-                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom), width: 6)
+                            .background(Color.tertiaryColor)
+                            .cornerRadius(10)
                     }.padding()
-                    
-                
+
                     
                     NavigationLink(destination: LogView().environment(\.managedObjectContext, self.managedObjectContext)) {
                         Text("View my log")
                             .foregroundColor(Color.black)
                             .frame(width: geometry.size.width - 100, height: geometry.size.height / 6)
+                            .background(Color.secondaryColor)
                             .cornerRadius(10)
-                            .border(LinearGradient(gradient: Gradient(colors: [.primaryColor, .secondaryColor]), startPoint: .top, endPoint: .bottom), width: 6)
                     }.padding()
                     .onAppear(perform: self.addFirstStrat)
                     
                     Spacer()
                     VStack {
-                        Text("The strategy you have used most is \"\(self.strategies[0].text)\". You've used it \(self.strategies[0].totalUsed) times.").padding()
-                        Text("You don't use \"\(self.strategies.last!.text)\" much. Maybe try it next time.").padding()
-                    }.padding(.bottom)
-              
+                        if !self.strategies.isEmpty {
+                            Text("The strategy you have used most is \"\(self.strategies[0].text)\". You've used it \(self.strategies[0].totalUsed) times. \nYou don't use \"\(self.strategies.last!.text)\" much. Maybe try it next time.").foregroundColor(Color.white).padding()
+                        }
+                    }.background(Color.fourthColor)
+                        .padding(.bottom)
                     
                 }
             }.navigationBarTitle("What's going on?")
@@ -74,6 +76,10 @@ struct ContentView: View {
              strat.text = "Other"
              strat.totalUsed = 0
              strat.worked = 0
+            let strat2 = Strategy(context: self.managedObjectContext)
+            strat2.text = "None"
+            strat2.totalUsed = 0
+            strat2.worked = 0
             
              do {
                  try self.managedObjectContext.save()
