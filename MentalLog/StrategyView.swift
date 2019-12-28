@@ -28,6 +28,23 @@ struct StrategyView: View {
         ]
     ) var strategies: FetchedResults<Strategy>
     
+    let exampleStrats: [String] = [
+        "Meditate",
+        "Listen to music",
+        "Exercise",
+        "Breathing exercises",
+        "Reach out to a friend",
+        "Reach out to a family member",
+        "Write in a journal",
+        "Take a walk outside",
+        "Use a mindfulness app",
+        "Use a meditation app",
+        "Contact a professional",
+        "Do a puzzle"
+    ]
+    
+    @State var exampleStrat = ""
+    
     var body: some View {
         GeometryReader { geometry in 
             VStack {
@@ -43,6 +60,24 @@ struct StrategyView: View {
                             .background(Color.tertiaryColor)
                             .cornerRadius(10)
                     }
+                }.onAppear(perform: self.setExampleStrat)
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Example strategy: ")
+                        Text(self.exampleStrat)
+                    }
+                    Spacer()
+                    Button(action: {
+                        self.saveExampleStrat()
+                    }) {
+                        Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(Color.tertiaryColor)
+                    }
+                    
+                    
                 }
                 
                 List {
@@ -53,6 +88,23 @@ struct StrategyView: View {
                 
             }.padding()
         }
+    }
+    
+    func saveExampleStrat() {
+        let strat = Strategy(context: self.managedObjectContext)
+        strat.text = exampleStrat
+        strat.totalUsed = 0
+        strat.worked = 0
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            // handle the Core Data error
+        }
+        self.exampleStrat = self.exampleStrats.randomElement()!
+    }
+    
+    func setExampleStrat() {
+        self.exampleStrat = self.exampleStrats.randomElement()!
     }
     
     func addStrat() {
@@ -86,8 +138,6 @@ struct StrategyView: View {
 struct StrategyItem: View {
     var strategy: Strategy
     var body: some View {
-        
-        
         VStack(alignment: .leading) {
             Text("Title: \(strategy.text)").font(.title)
             Text("You have used this strategy \(strategy.totalUsed) times, and it has worked \(strategy.worked) times, for a success rate of \(calculateSucces(strategy: strategy))%.")

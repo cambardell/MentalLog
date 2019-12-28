@@ -14,7 +14,7 @@ struct LogView: View {
     @FetchRequest(
         entity: Event.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Event.text, ascending: false)
+            NSSortDescriptor(keyPath: \Event.dateHappened, ascending: false)
         ]
     ) var events: FetchedResults<Event>
     var body: some View {
@@ -43,7 +43,7 @@ struct LogItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("What happened: \(event.text)")
-            Text("The strategy you used was \"\(event.stratUsed)\". You said it \(event.stratWorked ? "worked" : "didn't work").")
+            Text("The strategy you used was \"\(event.stratUsed)\". You said the strategy \(event.stratWorked ? "worked" : "didn't work").")
             Text("Date of event: \(formatDate(date: event.dateHappened))")
             
             
