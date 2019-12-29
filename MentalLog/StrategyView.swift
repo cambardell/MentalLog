@@ -140,7 +140,7 @@ struct StrategyItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Title: \(strategy.text)").font(.title)
-            Text("You have used this strategy \(strategy.totalUsed) times, and it has worked \(strategy.worked) times, for a success rate of \(calculateSucces(strategy: strategy))%.")
+            Text("You have used this strategy \(strategy.totalUsed) times, and given it an average score of \(calculateSucces(strategy: strategy)) out of 5.")
         }
         
     }
@@ -148,7 +148,7 @@ struct StrategyItem: View {
 
 func calculateSucces(strategy: Strategy) -> Int {
     if strategy.totalUsed > 0 {
-        return Int(strategy.worked / strategy.totalUsed) * 100
+        return Int(strategy.worked / strategy.totalUsed)
     } else {
         return 0
     }

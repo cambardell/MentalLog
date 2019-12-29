@@ -62,7 +62,8 @@ struct ContentView: View {
                             Text("The strategy you have used most is \"\(self.strategies[0].text)\". You've used it \(self.strategies[0].totalUsed) times. \nYou don't use \"\(self.strategies.last!.text)\" much. Maybe try it next time.").foregroundColor(Color.white).padding()
                         }
                     }.background(Color.fourthColor)
-                        .padding(.bottom)
+                    .cornerRadius(10)
+                    .padding()
                     
                 }
             }.navigationBarTitle("What's going on?")

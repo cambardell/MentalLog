@@ -32,7 +32,7 @@
 		FC09742A23AC3AF800285BEC /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		FC95DE6223B025D100534932 /* Strategy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataClass.swift"; path = "../Strategy+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC95DE6323B025D100534932 /* Strategy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataProperties.swift"; path = "../Strategy+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FCE3573223AB4844008C5989 /* Coping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE3573223AB4844008C5989 /* Ripple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ripple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE3573523AB4844008C5989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE3573723AB4844008C5989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FCE3573A23AB4844008C5989 /* MentalLog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MentalLog.xcdatamodel; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		FCE3573323AB4844008C5989 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCE3573223AB4844008C5989 /* Coping.app */,
+				FCE3573223AB4844008C5989 /* Ripple.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,7 +119,7 @@
 			);
 			name = MentalLog;
 			productName = MentalLog;
-			productReference = FCE3573223AB4844008C5989 /* Coping.app */;
+			productReference = FCE3573223AB4844008C5989 /* Ripple.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -325,14 +325,15 @@
 				DEVELOPMENT_TEAM = N2WWEZ627P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MentalLog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bardell.MentalLog;
-				PRODUCT_NAME = Coping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bardell.ripple;
+				PRODUCT_NAME = Ripple;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -345,14 +346,15 @@
 				DEVELOPMENT_TEAM = N2WWEZ627P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MentalLog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bardell.MentalLog;
-				PRODUCT_NAME = Coping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bardell.ripple;
+				PRODUCT_NAME = Ripple;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

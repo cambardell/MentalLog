@@ -43,7 +43,7 @@ struct LogItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("What happened: \(event.text)")
-            Text("The strategy you used was \"\(event.stratUsed)\". You said the strategy \(event.stratWorked ? "worked" : "didn't work").")
+            Text("The strategy you used was \"\(event.stratUsed)\". You gave the strategy a score of \(event.stratScore).")
             Text("Date of event: \(formatDate(date: event.dateHappened))")
             
             

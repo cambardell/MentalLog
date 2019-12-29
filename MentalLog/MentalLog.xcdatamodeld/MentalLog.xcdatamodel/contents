@@ -2,8 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19C46a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="dateHappened" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="stratScore" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="stratUsed" attributeType="String"/>
-        <attribute name="stratWorked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Strategy" representedClassName="Strategy" syncable="YES">

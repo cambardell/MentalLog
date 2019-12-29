@@ -12,7 +12,7 @@ struct EventView: View {
     
     @State var whatHappened = ""
     @State var whatYouDid = ""
-    @State var stratWorked = false
+    @State var stratWorked = 3
     @State var selectedStrat = 0
     
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -46,7 +46,7 @@ struct EventView: View {
                     UIApplication.shared.endEditing()
                 }) {
                     Image(systemName: "keyboard.chevron.compact.down")
-                        .foregroundColor(Color.primaryColor)
+                        .foregroundColor(Color.secondaryColor)
                 }
                 Text("What strategy did you use?")
                 
@@ -57,22 +57,84 @@ struct EventView: View {
                 }.frame(width: geometry.size.width - 20, height: geometry.size.height / 4)
                     .border(Color.primaryColor)
                 
-                Text("Did it work?").padding(.bottom)
+                Text("How well did it work?").padding(.bottom)
                 
                 HStack {
-                    Text("Yes")
-                        .frame(width: geometry.size.width/2 - 20, height: 50)
-                        .background(self.stratWorked ? Color.primaryColor : Color.white)
-                        .border(Color.primaryColor, width: 2)
-                        .onTapGesture {
-                            self.stratWorked = true
+                    Button(action: {self.stratWorked = 1}) {
+                        
+                        if self.stratWorked == 1 {
+                            Image(systemName: "1.circle.fill")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        } else {
+                            Image(systemName: "1.circle")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        }
                     }
-                    Text("No")
-                        .frame(width: geometry.size.width/2 - 20, height: 50)
-                        .background(self.stratWorked ? Color.white : Color.primaryColor)
-                        .border(Color.primaryColor)
-                        .onTapGesture {
-                            self.stratWorked = false
+                    Button(action: {self.stratWorked = 2}) {
+                        if self.stratWorked == 2 {
+                            Image(systemName: "2.circle.fill")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        } else {
+                            Image(systemName: "2.circle")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        }
+                    }
+                    Button(action: {self.stratWorked = 3}) {
+                        if self.stratWorked == 3 {
+                            Image(systemName: "3.circle.fill")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        } else {
+                            Image(systemName: "3.circle")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        }
+                    }
+                    Button(action: {self.stratWorked = 4}) {
+                        if self.stratWorked == 4 {
+                            Image(systemName: "4.circle.fill")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        } else {
+                            Image(systemName: "4.circle")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        }
+                    }
+                    Button(action: {self.stratWorked = 5}) {
+                        if self.stratWorked == 5 {
+                            Image(systemName: "5.circle.fill")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        } else {
+                            Image(systemName: "5.circle")
+                            .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(Font.title.weight(.thin))
+                        }
                     }
                 }.padding(.bottom)
                 
@@ -97,14 +159,12 @@ struct EventView: View {
         let event = Event(context: self.managedObjectContext)
         event.text = self.whatHappened
         event.stratUsed = self.strategies[selectedStrat].text
-        event.stratWorked = stratWorked
+        event.stratScore = stratWorked
         event.dateHappened = Date()
-        if stratWorked {
-            strategies[selectedStrat].worked += 1
-            strategies[selectedStrat].totalUsed += 1
-        } else {
-            strategies[selectedStrat].totalUsed += 1
-        }
+       
+        strategies[selectedStrat].worked += Int16(self.stratWorked)
+        strategies[selectedStrat].totalUsed += 1
+       
         
         do {
             try self.managedObjectContext.save()
@@ -113,7 +173,7 @@ struct EventView: View {
         }
         self.selectedStrat = 0
         self.whatHappened = ""
-        self.stratWorked = false
+        self.stratWorked = 3
     }
 }
 
