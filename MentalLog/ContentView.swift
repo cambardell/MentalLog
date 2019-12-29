@@ -56,7 +56,7 @@ struct ContentView: View {
                     }.padding()
                     .onAppear(perform: self.addFirstStrat)
                     
-                    Spacer()
+                    
                     VStack {
                         if !self.strategies.isEmpty {
                             Text("The strategy you have used most is \"\(self.strategies[0].text)\". You've used it \(self.strategies[0].totalUsed) times. \nYou don't use \"\(self.strategies.last!.text)\" much. Maybe try it next time.").foregroundColor(Color.white).padding()

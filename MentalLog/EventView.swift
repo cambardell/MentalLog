@@ -55,9 +55,10 @@ struct EventView: View {
                         Text(self.strategies[$0].text)
                     }
                 }.frame(width: geometry.size.width - 20, height: geometry.size.height / 4)
-                    .border(Color.primaryColor)
+                    .labelsHidden()
+                    .padding([.top, .bottom])
                 
-                Text("How well did it work?").padding(.bottom)
+                Text("How well did it work?")
                 
                 HStack {
                     Button(action: {self.stratWorked = 1}) {
@@ -158,8 +159,11 @@ struct EventView: View {
     func addEvent() {
         let event = Event(context: self.managedObjectContext)
         event.text = self.whatHappened
+        if event.text == "" {
+            event.text = "No description"
+        }
         event.stratUsed = self.strategies[selectedStrat].text
-        event.stratScore = stratWorked
+        event.stratScore = Int16(stratWorked)
         event.dateHappened = Date()
        
         strategies[selectedStrat].worked += Int16(self.stratWorked)

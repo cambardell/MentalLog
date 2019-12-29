@@ -139,7 +139,7 @@ struct StrategyItem: View {
     var strategy: Strategy
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Title: \(strategy.text)").font(.title)
+            Text(strategy.text).font(.title)
             Text("You have used this strategy \(strategy.totalUsed) times, and given it an average score of \(calculateSucces(strategy: strategy)) out of 5.")
         }
         

@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		FC0908AE23AF1FF2009E9375 /* Cosmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0908AD23AF1FF2009E9375 /* Cosmetics.swift */; };
-		FC09742423AC398000285BEC /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742023AC398000285BEC /* Event+CoreDataClass.swift */; };
-		FC09742523AC398000285BEC /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */; };
 		FC09742923AC3ADF00285BEC /* StrategyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742823AC3ADF00285BEC /* StrategyView.swift */; };
 		FC09742B23AC3AF800285BEC /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC09742A23AC3AF800285BEC /* LogView.swift */; };
-		FC95DE6423B025D100534932 /* Strategy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC95DE6223B025D100534932 /* Strategy+CoreDataClass.swift */; };
-		FC95DE6523B025D100534932 /* Strategy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC95DE6323B025D100534932 /* Strategy+CoreDataProperties.swift */; };
+		FC9A0F9423B847D900345A96 /* Strategy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A0F9023B847D900345A96 /* Strategy+CoreDataClass.swift */; };
+		FC9A0F9523B847D900345A96 /* Strategy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A0F9123B847D900345A96 /* Strategy+CoreDataProperties.swift */; };
+		FC9A0F9623B847D900345A96 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A0F9223B847D900345A96 /* Event+CoreDataClass.swift */; };
+		FC9A0F9723B847D900345A96 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A0F9323B847D900345A96 /* Event+CoreDataProperties.swift */; };
 		FCE3573623AB4844008C5989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573523AB4844008C5989 /* AppDelegate.swift */; };
 		FCE3573823AB4844008C5989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573723AB4844008C5989 /* SceneDelegate.swift */; };
 		FCE3573B23AB4844008C5989 /* MentalLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCE3573923AB4844008C5989 /* MentalLog.xcdatamodeld */; };
@@ -26,12 +26,12 @@
 
 /* Begin PBXFileReference section */
 		FC0908AD23AF1FF2009E9375 /* Cosmetics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cosmetics.swift; sourceTree = "<group>"; };
-		FC09742023AC398000285BEC /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FC09742823AC3ADF00285BEC /* StrategyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyView.swift; sourceTree = "<group>"; };
 		FC09742A23AC3AF800285BEC /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
-		FC95DE6223B025D100534932 /* Strategy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataClass.swift"; path = "../Strategy+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FC95DE6323B025D100534932 /* Strategy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataProperties.swift"; path = "../Strategy+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC9A0F9023B847D900345A96 /* Strategy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataClass.swift"; path = "Assets.xcassets/Strategy+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC9A0F9123B847D900345A96 /* Strategy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Strategy+CoreDataProperties.swift"; path = "Assets.xcassets/Strategy+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC9A0F9223B847D900345A96 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Event+CoreDataClass.swift"; path = "Assets.xcassets/Event+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC9A0F9323B847D900345A96 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Event+CoreDataProperties.swift"; path = "Assets.xcassets/Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCE3573223AB4844008C5989 /* Ripple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ripple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE3573523AB4844008C5989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE3573723AB4844008C5989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,10 +74,10 @@
 		FCE3573423AB4844008C5989 /* MentalLog */ = {
 			isa = PBXGroup;
 			children = (
-				FC09742023AC398000285BEC /* Event+CoreDataClass.swift */,
-				FC09742123AC398000285BEC /* Event+CoreDataProperties.swift */,
-				FC95DE6223B025D100534932 /* Strategy+CoreDataClass.swift */,
-				FC95DE6323B025D100534932 /* Strategy+CoreDataProperties.swift */,
+				FC9A0F9023B847D900345A96 /* Strategy+CoreDataClass.swift */,
+				FC9A0F9123B847D900345A96 /* Strategy+CoreDataProperties.swift */,
+				FC9A0F9223B847D900345A96 /* Event+CoreDataClass.swift */,
+				FC9A0F9323B847D900345A96 /* Event+CoreDataProperties.swift */,
 				FCE3573523AB4844008C5989 /* AppDelegate.swift */,
 				FCE3573723AB4844008C5989 /* SceneDelegate.swift */,
 				FCE3573C23AB4844008C5989 /* ContentView.swift */,
@@ -177,12 +177,12 @@
 				FCE3573623AB4844008C5989 /* AppDelegate.swift in Sources */,
 				FCE3573823AB4844008C5989 /* SceneDelegate.swift in Sources */,
 				FCE3573D23AB4844008C5989 /* ContentView.swift in Sources */,
-				FC95DE6523B025D100534932 /* Strategy+CoreDataProperties.swift in Sources */,
+				FC9A0F9523B847D900345A96 /* Strategy+CoreDataProperties.swift in Sources */,
+				FC9A0F9723B847D900345A96 /* Event+CoreDataProperties.swift in Sources */,
+				FC9A0F9423B847D900345A96 /* Strategy+CoreDataClass.swift in Sources */,
+				FC9A0F9623B847D900345A96 /* Event+CoreDataClass.swift in Sources */,
 				FC09742923AC3ADF00285BEC /* StrategyView.swift in Sources */,
-				FC95DE6423B025D100534932 /* Strategy+CoreDataClass.swift in Sources */,
-				FC09742523AC398000285BEC /* Event+CoreDataProperties.swift in Sources */,
 				FCE3573B23AB4844008C5989 /* MentalLog.xcdatamodeld in Sources */,
-				FC09742423AC398000285BEC /* Event+CoreDataClass.swift in Sources */,
 				FC09742B23AC3AF800285BEC /* LogView.swift in Sources */,
 				FCE3574D23AB4B13008C5989 /* EventView.swift in Sources */,
 			);
@@ -321,6 +321,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MentalLog/Preview Content\"";
 				DEVELOPMENT_TEAM = N2WWEZ627P;
 				ENABLE_PREVIEWS = YES;
@@ -342,6 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MentalLog/Preview Content\"";
 				DEVELOPMENT_TEAM = N2WWEZ627P;
 				ENABLE_PREVIEWS = YES;
