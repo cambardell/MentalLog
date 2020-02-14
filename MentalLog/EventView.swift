@@ -40,7 +40,7 @@ struct EventView: View {
                 
                 TextView(text: self.$whatHappened)
                     .frame(width: geometry.size.width - 20, height: geometry.size.height / 4)
-                    .border(Color.primaryColor)
+                    .border(Color.secondaryColor)
                     .padding(.bottom)
                 Button(action: {
                     UIApplication.shared.endEditing()
@@ -179,6 +179,8 @@ struct EventView: View {
         self.whatHappened = ""
         self.stratWorked = 3
     }
+    
+    
 }
 
 struct TextView: UIViewRepresentable {

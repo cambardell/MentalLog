@@ -47,7 +47,7 @@ struct StrategyView: View {
     
     var body: some View {
         GeometryReader { geometry in 
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     TextField("Enter a new strategy", text: self.$stratText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -79,6 +79,8 @@ struct StrategyView: View {
                     
                     
                 }
+                
+                Text("Your strategy with the highest average score is \(self.bestStrat().text).")
                 
                 List {
                     ForEach(self.strategies, id: \.self) { strategy in
@@ -132,6 +134,22 @@ struct StrategyView: View {
         } catch {
             // handle the Core Data error
         }
+    }
+    
+    func bestStrat() -> Strategy {
+        var topStrat = strategies[0]
+        for strategy in strategies {
+            if topStrat.totalUsed > 0 && strategy.totalUsed > 0 {
+                let bestStratScore = topStrat.worked / topStrat.totalUsed
+                let newStratScore = strategy.worked / strategy.totalUsed
+                if newStratScore > bestStratScore {
+                    topStrat = strategy
+                }
+            }
+            
+        }
+        
+        return topStrat
     }
 }
 
