@@ -61,6 +61,7 @@ struct StrategyView: View {
                             .cornerRadius(10)
                     }
                 }.onAppear(perform: self.setExampleStrat)
+                    .padding([.leading, .trailing])
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -78,17 +79,17 @@ struct StrategyView: View {
                     }
                     
                     
-                }
+                }.padding([.leading, .trailing])
                 
-                Text("Your strategy with the highest average score is \(self.bestStrat().text).")
-                
+                Text("Your most successful strategy by average score is \(self.bestStrat().text), with a score of \(calculateSucces(strategy: self.bestStrat())) out of 5.").padding([.leading, .trailing])
+                    
                 List {
                     ForEach(self.strategies, id: \.self) { strategy in
                         StrategyItem(strategy: strategy)
                     }.onDelete(perform: self.removeStrat)
                 }
                 
-            }.padding()
+            }
         }
     }
     
@@ -139,12 +140,8 @@ struct StrategyView: View {
     func bestStrat() -> Strategy {
         var topStrat = strategies[0]
         for strategy in strategies {
-            if topStrat.totalUsed > 0 && strategy.totalUsed > 0 {
-                let bestStratScore = topStrat.worked / topStrat.totalUsed
-                let newStratScore = strategy.worked / strategy.totalUsed
-                if newStratScore > bestStratScore {
-                    topStrat = strategy
-                }
+            if calculateSucces(strategy: strategy) > calculateSucces(strategy: topStrat) {
+                topStrat = strategy
             }
             
         }

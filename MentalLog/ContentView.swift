@@ -68,7 +68,7 @@ struct ContentView: View {
                 }
             }.navigationBarTitle("What's going on?")
             
-        }
+        }.accentColor(Color.secondaryColor)
     }
     
     func addFirstStrat() {
